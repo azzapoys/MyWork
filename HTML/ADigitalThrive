@@ -1,0 +1,362 @@
+<?php
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	
+		$dbhost = "127.0.0.1";
+		$dbuser = "";
+		$dbpass = "";
+		$dbname = "";
+			
+		$con=mysqli_connect("$dbhost","$dbuser","$dbpass","$dbname");
+
+		// Check connection
+		if (mysqli_connect_errno()) {
+			echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		}
+
+		$forename = $_POST['forename'];
+		$lastname = $_POST['lastname'];
+		$emailaddress = $_POST['emailaddress'];
+		$subject = $_POST['subject'];
+		$message = $_POST['message'];
+
+		$sql="INSERT INTO contact_form (forename, lastname, emailaddress, subject, message)
+		VALUES ('$forename','$lastname','$emailaddress','$subject','$message')";
+
+		if (!mysqli_query($con,$sql)) {
+			die('Error: ' . mysqli_error($con));
+		}
+		
+		mysqli_close($con);
+	}
+?>
+<?php 
+	$title="ADigitalThrive | Home"; 
+	$description="A Digital Thrive Homepage"; 
+	$keywords="A Digital Thrive, Digital, Thrive, ADigitalThrive, Wordpress, Joomla, MySQL, Apache, Website, Website Design, Website Management, Web Developer, Web Development, Stoke, Staffordshire"; 
+?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/header.php'); ?>
+<body>
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/navbar.php'); ?>
+   
+	<style>
+		#form-container {
+			padding-top: 40px;
+		}
+	</style>
+
+	<script>
+		$('#send_btn').popover({content: 'Thank You'},'click');	
+	</script>
+
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Contact Form</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" action="" method="post" autocomplete="on">
+						<div class="form-group">
+							<label for="forename" class="col-sm-2 control-label">Forename</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="forename" name="forename" placeholder="First Name" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="lastname" class="col-sm-2 control-label">Surname</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="emailaddress" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="emailaddress" name="emailaddress" placeholder="example@domain.com" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="subject" class="col-sm-2 control-label">Subject</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="message" class="col-sm-2 control-label">Message</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" rows="4" id="message" name="message" required></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-10 col-sm-offset-2">
+								<button class="btn btn-lg btn-success" type="submit" id="send_btn">Submit</button><br /><br />
+							</div>
+						</div>					
+					</form>
+				</div><!-- End of Modal body -->
+			</div><!-- End of Modal content -->
+		</div><!-- End of Modal dialog -->
+	</div><!-- End of Modal -->
+
+	<!-- Header -->
+	<header id="top">
+		<div class="text-vertical-center">
+	        	<div class="container">
+				<!-- <h1>A Digital Thrive</h1>
+				<img src="/images/logo.png" class="img-responsive center-block" alt="" /> -->
+				<div class="custom-spacer">
+					<a href="#services" class="btn btn-dark btn-lg">Find Out More</a>&nbsp;<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModal">Contact Us</a>
+				</div>
+			</div>		
+		</div>
+	</header>
+
+	<!-- Services -->
+	<section id="services" class="services bg-primary">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-lg-10 col-lg-offset-1">
+					<h2>Our Services</h2>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-3">
+							<div class="service-item">
+								<a href="//developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank">
+									<img src="/images/logo_icons_v2/html5-logo.png" class="img-responsive img-circle center-block" width="53%" height="53%" alt="" />
+								</a>
+                                				<h4><strong>Website Design</strong></h4>
+								<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#html5-modal">More Info</a>
+
+								<div id="html5-modal" class="modal fade">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title">HTML5 Compliant Website Design</h4>
+											</div>
+											<div class="modal-body">
+												<img src="/images/logo_icons_v2/html5-logo.png" class="img-responsive img-circle center-block" width="25%" height="25%" alt="" />
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/html5.txt'); ?></p>
+											</div>
+											<div class="modal-footer">
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/modal_footer.txt'); ?></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="service-item">
+								<a href="//developer.mozilla.org/en-US/docs/Web/CSS/CSS3" target="_blank">
+									<img src="/images/logo_icons_v2/css3-logo.png" class="img-responsive img-circle center-block" width="53%" height="53%" alt="" />
+								</a>
+                                				<h4><strong>CSS3 Website Design</strong></h4>
+								<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#css3-modal">More Info</a>
+
+								<div id="css3-modal" class="modal fade">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title">CSS3 Compliant Website Design</h4>
+											</div>
+											<div class="modal-body">
+												<img src="/images/logo_icons_v2/css3-logo.png" class="img-responsive img-circle center-block" width="25%" height="25%" alt="" />
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/css3.txt'); ?></p>
+											</div>
+											<div class="modal-footer">
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/modal_footer.txt'); ?></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3"></div>
+					</div><!-- /.row (nested) -->
+
+					<div class="row">
+						<div class="col-md-3">
+							<div class="service-item">
+								<a href="http://www.php.net/" target="_blank">
+									<img src="/images/logo_icons_v2/apache-logo.png" class="img-responsive img-circle center-block" width="53%" height="53%" alt="" />
+								</a>
+								<h4><strong>Apache/PHP Installation</strong></h4>
+								<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#apache-modal">More Info</a>
+
+								<div id="apache-modal" class="modal fade">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title">Apache/PHP Installation</h4>
+											</div>
+											<div class="modal-body">
+												<img src="/images/logo_icons_v2/apache-logo.png" class="img-responsive img-circle center-block" width="25%" height="25%" alt="" />
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/apache.txt'); ?></p>
+											</div>
+											<div class="modal-footer">
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/modal_footer.txt'); ?></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="service-item">
+								<a href="//www.mysql.com" target="_blank">
+									<img src="/images/logo_icons_v2/mysql-logo.png" class="img-responsive img-circle center-block" width="53%" height="53%" alt="" />
+								</a>
+								<h4><strong>MySQL Installation</strong></h4>
+								<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#mysql-modal">More Info</a>
+
+								<div id="mysql-modal" class="modal fade">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title">MySQL Installation</h4>
+											</div>
+											<div class="modal-body">
+												<img src="/images/logo_icons_v2/mysql-logo.png" class="img-responsive img-circle center-block" width="25%" height="25%" alt="" />
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/mysql.txt'); ?></p>
+											</div>
+											<div class="modal-footer">
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/modal_footer.txt'); ?></p>
+											</div>
+										</div>
+									</div>
+								</div>								
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="service-item">
+								<a href="//www.wordpress.org" target="_blank">
+									<img src="/images/logo_icons_v2/wordpress-logo.png" class="img-responsive img-circle center-block" width="53%" height="53%" alt="" />
+								</a>
+								<h4><strong>Wordpress Installation</strong></h4>
+								<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#wordpress-modal">More Info</a>
+
+								<div id="wordpress-modal" class="modal fade">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title">WordPress Installation</h4>
+											</div>
+											<div class="modal-body">
+												<img src="/images/logo_icons_v2/wordpress-logo.png" class="img-responsive img-circle center-block" width="25%" height="25%" alt="" />
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/wordpress.txt'); ?></p>
+											</div>
+											<div class="modal-footer">
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/modal_footer.txt'); ?></p>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="service-item">
+								<a href="//www.joomla.org/" target="_blank">
+									<img src="/images/logo_icons_v2/joomla-logo.png" class="img-responsive img-circle center-block" width="53%" height="53%" alt="" />
+								</a>
+								<h4><strong>Joomla Installation</strong></h4>
+								<a href="#" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#joomla-modal">More Info</a>
+
+								<div id="joomla-modal" class="modal fade">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title">Joomla Installation</h4>
+											</div>
+											<div class="modal-body">
+												<img src="/images/logo_icons_v2/joomla-logo.png" class="img-responsive img-circle center-block" width="25%" height="25%" alt="" />
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/joomla.txt'); ?></p>
+											</div>
+											<div class="modal-footer">
+												<p><?php include($_SERVER['DOCUMENT_ROOT'].'/includes/modal_content/modal_footer.txt'); ?></p>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div><!-- /.row (nested) -->
+				</div><!-- /.col-lg-10 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+
+	<!-- Callout -->
+	<aside class="callout">
+		<div class="text-vertical-center">
+			<h1>Scroll Down</h1>
+		</div>
+	</aside>
+
+	<!-- Portfolio -->
+	<section id="portfolio" class="portfolio">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 text-center">
+					<h2>Our Work</h2>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+								<a href="//www.ajgardenjoinery.co.uk/" target="_blank"><img class="img-portfolio img-responsive" src="/images/project_images/project1.png"></a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+								<a href="//www.adigitalthrive.co.uk/" target="_blank"><img class="img-portfolio img-responsive" src="/images/project_images/project2.png"></a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+								<a href="//www.apdesigner.co.uk/" target="_blank"><img class="img-portfolio img-responsive" src="/images/project_images/project4.png"></a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+								<a href="//www.slsstoke.co.uk/" target="_blank"><img class="img-portfolio img-responsive" src="/images/project_images/project5.png"></a>
+							</div>
+						</div>
+
+					</div><!-- /.row (nested) -->
+					<!-- <a href="#" class="btn btn-dark">View More Items</a> -->
+				</div><!-- /.col-lg-10 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</section>
+
+	<!-- Call to Action -->
+	<aside class="call-to-action bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="row">
+						<div class="col-lg-3"></div>
+						<div class="col-lg-6">
+							<a class="twitter-timeline" href="https://twitter.com/adigitalthrive" data-widget-id="635949483554119682">Tweets by @adigitalthrive</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement											(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						<div class="col-lg-3"></div>
+					</div>
+					<h3>Click the button below to go back to the top.</h3>
+					<a href="#top" class="btn btn-lg btn-light">Go to top</a><br /><br />
+				</div>
+			</div>
+		</div>
+	</aside>
+
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'); ?>
+
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/includes/footer_scripts.php'); ?>
+</body>
+</html>
