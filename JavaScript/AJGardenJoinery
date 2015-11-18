@@ -1,0 +1,37 @@
+	/* Takes Coordinates */
+	function success(pos) {
+		var crd = pos.coords;
+		var DistanceInKM	= distance(crd.latitude, crd.longitude, 53.0753943, -2.1856587)
+		document.getElementById("Distance").innerHTML = "From the location of your IP address, you are around " + Math.round(DistanceInKM) + " kilometres";
+        	document.getElementById("Distance").innerHTML += " or around " + Math.round(Math.round(DistanceInKM) * 0.62137) + " miles away ";
+        	document.getElementById("Distance").innerHTML += " from AJ Garden Joinery";		
+	};
+
+	/* This function displays an error message if the process is unsuccessful */
+	function error() {
+		alert('ERROR');
+	};
+
+	/* Calculate distance between two pairs of latitude and longitude */
+	function distance(lat1, lon1, lat2, lon2) {
+		var distanceLatitude = (lat2-lat1).toRad();	// Javascript functions in radians
+		var distanceLongitude = (lon2-lon1).toRad(); 
+		var a = Math.sin(distanceLatitude/2) * Math.sin(distanceLatitude/2) +
+			Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+			Math.sin(distanceLongitude/2) * Math.sin(distanceLongitude/2); 
+		
+		/* Radius of the earth in km = 6371 */
+		return 6371 * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))); // Distance in km;
+	}
+
+	/* Converts numeric degrees to radians if the function doesn't already exist */
+	if (typeof(Number.prototype.toRad) === "undefined") {
+		Number.prototype.toRad = function() {
+			return this * Math.PI / 180;
+		}
+	}
+
+	/* Runs function on page load */
+	function pageload_geo() {
+		navigator.geolocation.getCurrentPosition(success, error);
+	}
