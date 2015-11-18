@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AJ Garden Joinery</title>
+<?php include('includes/header.php'); ?>
+<body>
+	<?php include('includes/brand.php'); ?>
+	<?php include('includes/address.php'); ?>
+    
+	<?php include('includes/menu.php'); ?>
+	
+	<!-- CONTAINER
+	================================================== -->
+
+	<div class="loader"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="box">
+				<div class="col-lg-12 text-center">
+					<div id="carousel-example-generic" class="carousel slide">
+						<!-- Indicators -->
+						<ol class="carousel-indicators hidden-xs">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active"><img class="img-responsive img-full" src="img/slideshow/image1.jpg" alt=""></div>
+							<div class="item"><img class="img-responsive img-full" src="img/slideshow/image2.jpg" alt=""></div>
+							<div class="item"><img class="img-responsive img-full" src="img/slideshow/image3.jpg" alt=""></div>
+							<div class="item"><img class="img-responsive img-full" src="img/slideshow/image4.jpg" alt=""></div>
+							<div class="item"><img class="img-responsive img-full" src="img/slideshow/image5.jpg" alt=""></div>
+						</div>
+
+						<!-- Controls -->
+						<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
+						<a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+					</div>
+					<h2 class="brand-before"><small>Welcome to</small></h2>
+					<h1 class="brand-name">AJ Garden Joinery</h1>
+					<hr class="tagline-divider">
+					<h2><small><strong>Made To Measure Service Guaranteed.</strong></small></h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="box">
+				<div class="col-lg-12">
+					<hr>
+					<h2 class="intro-text text-center">A Little Insight.</h2>
+					<hr>
+					<hr class="visible-xs">
+					<p>
+						Hello, my name is Aidan James. I am a solo joiner currently owning a small business called AJ Garden Joinery.
+						Please check out some of the services I offer and if there is anything that you would like to know please don't
+						hesitate to contact me either by email or by the contact form situated on the contact page. I offer a high quality
+						finish to all of the services I offer, and by using a made to measure approach, I can be accurate with any dimensions
+						that you provide.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div><!-- /.container -->
+
+	<?php include('includes/footer.php'); ?>
+    
+	<?php include('includes/footer_scripts.php'); ?>
+
+</body>
+</html>
