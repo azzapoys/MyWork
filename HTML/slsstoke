@@ -1,0 +1,77 @@
+<?php 
+	$title="Welcome to | S&L Sevices"; 
+	$description="SL Services Stoke Homepage."; 
+	$keywords="SL Services, Stoke, Transport, Haulage, Road Haulage"; 
+?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/header.php'); ?>
+<body>
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/navbar.php'); ?>
+  
+		<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/banner.php'); ?> 
+		
+		<!--Section area starts Here -->
+		<section id="section"> 
+			<!--Section box starts Here -->
+			<div class="section">
+				<div class="services">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="heading">
+									<h2></h2>
+								</div>
+							</div>
+						</div>
+						<div id="services-slides" class="services-slider">
+							<div class="slides-tab">
+								<div class="slides-text">
+									<h4>TRANSPORT DIVISION</h4>
+									<p>
+										Road transport is the core of our business and we have built a well-respected reputation for providing a quality service and 
+										ensuring that our standards are always high end.
+										We have road transport across the UK and Western Europe, with a modern fleet of 44 tonne articulated vehicles and trailers, 
+										which are operating daily 24/7 throughout the UK.
+										We offer competitive pricing and also have a committed and reliable workforce.
+									</p>
+									<a href="/services/transport-division/" class="read-more">Read More<span>></span></a>
+								</div>
+							</div>
+							<div class="slides-tab">
+								<div class="slides-text">
+									<h4>TRAINING DIVISON</h4>
+									<p> 
+										From September 2014 it will be a legal requirement for all drivers to have completed the Certificate of Professional Competence (CPC) training, 
+										this means all drivers will need to have completed 35 hours of CPC training.
+										All CPC training is approved by Joint Approvals Unit for Periodic Training (JAUPT).
+										S&L Services is a JAUPT approved training facility.
+										Drivers must always carry evidence of Driver CPC status while driving professionally.
+									</p>
+									<a href="/services/training-division/" class="read-more">Read More<span>></span></a>
+								</div>
+							</div>
+							<div class="slides-tab">
+								<div class="slides-text">
+									<h4>CAREERS</h4>
+									<p> 
+										We offer a career path by first starting in the training division, 
+										if you have acquired your HGV then we will train you to obtain your CPC (Certificate of Professional Competence) 
+										and this can lead you to the transport division where you will belong to a selection of professional drivers.
+										All training for the certificate of professional competence qualification will be approved by JAUPT. 
+										(Joint Approvals Unit for Periodic Training)
+									</p>
+									<a href="/careers/" class="read-more">Read More<span>></span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Section box ends Here --> 
+		</section>
+		<!--Section area ends Here --> 
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/footer.php'); ?>
+	</div>
+	<!--Wrapper Section Ends Here --> 
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/footer_scripts.php'); ?>
+</body>
+</html>
