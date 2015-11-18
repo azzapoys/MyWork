@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>AP Designer</title>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/header.php'); ?>		
+<body class="index">
+	<div id="page-wrapper">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1 id="logo"><a href="/">AP Designer&trade;</a></h1>
+			<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/menu.php'); ?>
+		</header>
+
+		<!-- Banner -->
+		<section id="banner">
+			<!--
+				".inner" is set up as an inline-block so it automatically expands
+				in both directions to fit whatever's inside it. This means it won't
+				automatically wrap lines, so be sure to use line breaks where
+				appropriate (<br />).
+			-->
+			<div class="inner">
+				<header>
+					<h2>AP Portfolio</h2>
+				</header>
+				<p><strong>Designer</strong></p>
+				<br />
+				<br />
+			</div>
+		</section>
+
+		<!-- Main -->
+		<article id="main">
+			<header class="special container">
+				<span class="icon fa-mobile-phone"></span>
+				<h2>Hello my name is Aaron Poyser and welcome to my website!</h2><br />
+				<p>I am just trying to publicise what I do and if there is anything that you would like to know, don't hesitate in contacting me.
+				Currently I am studying at Staffordshire University topping up to an BSc Honours Degree for "Applied Computing"
+				<br />
+				Therefore this is a side project to do, as this will help me advertise what I specialise in and what my career path is going to be.
+				<br />
+				I am currently available for any website production that is required and would do the design to any purpose.</p>
+			</header>
+			<!-- Two -->
+			<section class="wrapper style1 container special">
+				<div class="row">
+					<div class="4u 12u(narrower)">
+						<section class="toppad">
+							<div class="circular"></div>
+							<p>Please Enjoy taking a look at this website, I offer many services that may benefit people in different ways. Please read on.</p>
+						</section>
+					</div>
+					<div class="4u 12u(narrower)">
+						<section class="toppad">
+							<div class="circular1"></div>										
+							<p>Currently I am doing small projects outside of the university institute to pass the time.</p>
+						</section>
+					</div>
+					<div class="4u 12u(narrower)">
+						<section class="toppad">
+							<div class="circular2"></div>										
+							<p>Please read more about what services I offer on the about us section :).</p>
+						</section>
+					</div>
+				</div>
+			</section>
+		</article>		
+		<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/footer.php'); ?>
+	</div>
+
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/assets/includes/footer_scripts.php'); ?>
+</body>
+</html>
