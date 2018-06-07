@@ -4,4 +4,4 @@ Please look through all of my work I have done, most of my HTML pages are PHP so
 
 I use a bootstrap approach to all of my websites, but use custom stylesheets to style the internal structures of the webpage. I always ensure that my websites are responsive to suit mobile technologies.
 
-As most of my websites use PHP, then these are used alongside the HTML therefore the PHP I use will be with the HTML.
+I try to incorporate different styles dependent on the requirements of the client. So far I have adapted new technologies into my portfolio sites and have also included different example source code structures that I have used previously.
